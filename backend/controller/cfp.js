@@ -25,6 +25,18 @@ const getCFPByEventId = async (req, res) => {
   }
 };
 
+const approveCFP = async (req, res) => {
+  const cfp = await CFP.findById(req.params.id);
+  if (cfp) {
+    cfp.isApproved = true;
+    const updatedCFP = await cfp.save();
+    res.status(200).json(updatedCFP);
+  } else {
+    res.status(404);
+    console.log("CFP not found");
+  }
+};
+
 const createCFP = asyncHandler(async (req, res) => {
   const {
     title,
@@ -72,4 +84,10 @@ const createCFP = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { getCFPs, getCFPById, createCFP, getCFPByEventId };
+module.exports = {
+  getCFPs,
+  getCFPById,
+  createCFP,
+  getCFPByEventId,
+  approveCFP,
+};

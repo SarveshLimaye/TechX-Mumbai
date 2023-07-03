@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SuccessPage = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user } = useAuth0();
   const [dbUser, setDbUser] = useState({});
   const [event, setEvent] = useState({});
   const navigate = useNavigate();
@@ -77,7 +77,7 @@ const SuccessPage = () => {
           <Box textAlign="center" py={10} px={6}>
             <CheckCircleIcon boxSize={"50px"} color={"green.500"} />
             <Heading as="h2" size="xl" mt={6} mb={2}>
-              You are registered successfullt for the event! Thank you!
+              You are registered successfully for the event! Thank you!
             </Heading>
             <Text color={"gray.500"}>
               <button onClick={handleClick}>Back to Home Page</button>
