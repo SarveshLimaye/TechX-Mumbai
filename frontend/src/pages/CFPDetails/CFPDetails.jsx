@@ -1,49 +1,29 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
-  Box,
   chakra,
-  Container,
   Stack,
-  Text,
-  Image,
   Flex,
-  VStack,
   Button,
-  Heading,
   SimpleGrid,
-  StackDivider,
   useColorModeValue,
-  VisuallyHidden,
-  Link,
-  List,
-  ListItem,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-
-const data = [
-  {
-    name: "Segun Adebayo",
-    email: "sage@chakra.com",
-  },
-  {
-    name: "Josef Nikolas",
-    email: "Josef@mail.com",
-  },
-  {
-    name: "Lazar Nikolov",
-    email: "Lazar@mail.com",
-  },
-  {
-    name: "Abraham",
-    email: "abraham@anu.com",
-  },
-];
 
 export default function CFPDetails() {
   const dataColor = useColorModeValue("white", "gray.800");
   const bg = useColorModeValue("white", "gray.800");
   const bg2 = useColorModeValue("gray.100", "gray.700");
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [cfp, setCfp] = useState([]);
+
   const { id } = useParams();
   useEffect(() => {
     const getCFP = async () => {
@@ -57,6 +37,20 @@ export default function CFPDetails() {
 
     getCFP();
   }, []);
+
+  const approveCFP = async (id) => {
+    const response = await fetch(
+      `http://localhost:5000/api/cfps/approval/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+  };
 
   return (
     <Flex
@@ -83,7 +77,7 @@ export default function CFPDetails() {
           return (
             <Flex
               direction={{
-                base: "row",
+                base: "column",
                 md: "column",
               }}
               bg={dataColor}
@@ -134,19 +128,48 @@ export default function CFPDetails() {
                 px={10}
                 fontWeight="hairline"
               >
-                <span>{proposal.title}</span>
-                <chakra.span
-                  textOverflow="ellipsis"
-                  overflow="hidden"
-                  whiteSpace="nowrap"
-                >
-                  {proposal.userId.email}
-                </chakra.span>
+                <span>{proposal.userId.name}</span>
+                <span>{proposal.userId.email}</span>
                 <Flex
                   justify={{
                     md: "end",
                   }}
                 >
+                  <>
+                    <Button
+                      variant="solid"
+                      colorScheme="green"
+                      size="sm"
+                      mr={5}
+                      onClick={onOpen}
+                    >
+                      View Proposal
+                    </Button>
+                    <Modal
+                      isCentered
+                      onClose={onClose}
+                      isOpen={isOpen}
+                      motionPreset="slideInBottom"
+                    >
+                      <ModalOverlay />
+                      <ModalContent>
+                        <ModalHeader>{proposal.title}</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>{proposal.description}</ModalBody>
+                        <ModalFooter>
+                          <Button colorScheme="blue" mr={3} onClick={onClose}>
+                            Close
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            onClick={() => approveCFP(proposal._id)}
+                          >
+                            Approve
+                          </Button>
+                        </ModalFooter>
+                      </ModalContent>
+                    </Modal>
+                  </>
                   <Button
                     variant="solid"
                     colorScheme={proposal.isApproved ? "green" : "red"}
