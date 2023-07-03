@@ -27,8 +27,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/explore/:id" element={<EventDetails />} />
           <Route path="/explore/:id/cfp" element={<CFPDetails />} />
-          <Route path="/cfp/:id" element={<CFPForm />}></Route>
-          <Route path="/cfp/:id" element={<CFPForm />}></Route>
+          <Route path="/cfp/apply" element={<CFPForm />}></Route>
           <Route path="/success/:id" element={<SuccessPage />} />
           <Route path="*" element={<Custom404 />} />
         </Routes>

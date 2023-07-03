@@ -17,6 +17,7 @@ import {
   List,
   ListItem,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
 import { useState, useEffect } from "react";
@@ -85,6 +86,7 @@ export default function Simple() {
   }, [event.price, event.title, event.description, event.image]);
 
   const [url, setUrl] = useState("");
+  const navigate = useNavigate();
   return (
     <Container maxW={"7xl"}>
       <SimpleGrid
@@ -233,25 +235,11 @@ export default function Simple() {
               transform: "translateY(2px)",
               boxShadow: "lg",
             }}
+            onClick={() => navigate(`/cfp/apply`)}
           >
             Apply as speaker
           </Button>
-          <Button
-            rounded={"none"}
-            w={"md"}
-            size={"lg"}
-            py={"7"}
-            ml={16}
-            bg={useColorModeValue("gray.900", "gray.50")}
-            color={useColorModeValue("white", "gray.900")}
-            textTransform={"uppercase"}
-            _hover={{
-              transform: "translateY(2px)",
-              boxShadow: "lg",
-            }}
-          >
-            Apply as volunteer
-          </Button>
+
           {user.email === orgemail ? (
             <Button
               rounded={"none"}
@@ -266,8 +254,9 @@ export default function Simple() {
                 transform: "translateY(2px)",
                 boxShadow: "lg",
               }}
+              onClick={() => navigate(`/explore/${event._id}/cfp`)}
             >
-              <Link href={`/explore/${event._id}/cfp`}>View CFP</Link>
+              View CFP
             </Button>
           ) : null}
         </Stack>
