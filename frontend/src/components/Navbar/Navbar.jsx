@@ -133,20 +133,19 @@ export default function Navbar() {
                 </MenuList>
               </Menu>
             )}
-            {!isAuthenticated && !isLoading &&
-              (
-                <Button
-                  display="flex"
-                  flexDir="row"
-                  variant={"solid"}
-                  colorScheme={"teal"}
-                  size={"sm"}
-                  mr={4}
-                  leftIcon={<Icon as={CgProfile} boxSize={6} />}
-                >
-                  <LoginButton />
-                </Button>
-              )}
+            {!isAuthenticated && !isLoading && (
+              <Button
+                display="flex"
+                flexDir="row"
+                variant={"solid"}
+                colorScheme={"teal"}
+                size={"sm"}
+                mr={4}
+                leftIcon={<Icon as={CgProfile} boxSize={6} />}
+              >
+                <LoginButton />
+              </Button>
+            )}
             {isLoading && <div>Loading...</div>}
           </Flex>
         </Flex>
