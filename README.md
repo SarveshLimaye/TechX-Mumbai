@@ -16,7 +16,8 @@ A comprehensive event management solution for technical events happening in Mumb
 - User Profile
 
 - Admin Portal
-  
+
+- Payment gateway using Stripe
 
 ## 📸 Screenshots
 
@@ -42,10 +43,11 @@ A comprehensive event management solution for technical events happening in Mumb
 <img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/efb7e898-ce4b-4426-bc62-2b25a407a081">
 </td>
 <td>
-<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/e3d99c04-31fd-456a-9a33-d1ce90103c43">
+<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/0adc4dd5-5baf-41ff-8a85-c61cc415ac3f">
 </td
 </tr>
 </table>
+
 
 
 ## 🛠️ Built Wth
@@ -56,7 +58,7 @@ A comprehensive event management solution for technical events happening in Mumb
 - <a href="https://expressjs.com/">ExpressJs</a> - Express.js, is a back-end web application framework for building RESTful APIs with Node.js
 - <a href="https://nodemailer.com/about/">NodeMailer</a> - NodeMailer is a nodejs module enabling developers to send automated mails.
 - <a href="https://stripe.com/docs">Stripe</a> - Stripe is a suite of APIs powering online payment processing and commerce solutions for internet businesses of all sizes.
-- <a href="">Vite</a> - Vite is a build tool that aims to provide a faster development experience
+- <a href="https://vitejs.dev/">Vite</a> - Vite is a build tool that aims to provide a faster development experience
 
 ## 🖥️  Getting Started
 
@@ -79,5 +81,5 @@ yarn
 yarn run dev
 ```
 
-Note - Ensure that backend is running before starting frontend
+Note - Ensure that the backend is running before starting frontend
 
