@@ -204,24 +204,26 @@ export default function Simple() {
             </Box>
           </Stack>
 
-          <Button
-            rounded={"none"}
-            w={"md"}
-            ml={16}
-            size={"lg"}
-            py={"7"}
-            bg={useColorModeValue("gray.900", "gray.50")}
-            color={useColorModeValue("white", "gray.900")}
-            textTransform={"uppercase"}
-            _hover={{
-              transform: "translateY(2px)",
-              boxShadow: "lg",
-            }}
-          >
-            <a href={url} aria-label="Category">
-              Buy Ticket (₹{event.price})
-            </a>
-          </Button>
+          {event.tickets - attendees.length == 0 ? null : (
+            <Button
+              rounded={"none"}
+              w={"md"}
+              ml={16}
+              size={"lg"}
+              py={"7"}
+              bg={useColorModeValue("gray.900", "gray.50")}
+              color={useColorModeValue("white", "gray.900")}
+              textTransform={"uppercase"}
+              _hover={{
+                transform: "translateY(2px)",
+                boxShadow: "lg",
+              }}
+            >
+              <a href={url} aria-label="Category">
+                Buy Ticket (₹{event.price})
+              </a>
+            </Button>
+          )}
           <Button
             rounded={"none"}
             w={"md"}
