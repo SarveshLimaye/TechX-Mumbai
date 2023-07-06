@@ -1,12 +1,10 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
-const stripe = require("stripe")(
-  "sk_test_51LpOOBSGux33h6dxUNsiUUfhWtIuFGe5Vbx1XGfR0lDGPV0G8uRweLndzdW73tJvYMY8XGvRFg5SAtLmJQtqYgh000YJnVZaZa"
-);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 router.post("/create-checkout-session", async (req, res) => {
-  const { id,price, name, description, image } = req.body;
+  const { id, price, name, description, image } = req.body;
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
