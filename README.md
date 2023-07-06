@@ -1,5 +1,6 @@
 
-![banner (3)](https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/b994a476-1712-44f5-8a9d-15988f69e335)
+![banner (3)](https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/0e36353c-fc5e-4c5d-b858-b22a3701e372)
+
 
 ## 📝 Overview 
 
@@ -19,31 +20,32 @@ A comprehensive event management solution for technical events happening in Mumb
 
 - Payment gateway using Stripe
 
+
 ## 📸 Screenshots
 
 <table>
 <tr>
 <td>
-<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/b253c486-9c6d-44ee-b57c-68f07d09d83f">
+<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/2301bab5-9e3c-4d19-abfa-c2ef609767d0">
 </td>
 <td>
-<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/292e9252-6753-498e-ae72-1c17a293fe7d">
+<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/09a36708-bc87-4232-bfe8-c7c6726d80bc">
 </td>
 </tr>
 <tr>
 <td>
-<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/0474114c-5902-4c07-a0f4-1dcf060e951e">
+<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/02ed6e93-defd-4bc3-bd87-33578eef704a">
 </td>
 <td>
-<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/f7a89687-2b8d-49d8-98ac-c24ffb5d8aa1">
+<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/4c4ecbdc-560d-4a7c-9f2a-81a077ebe19d">
 </td
 </tr>
 <tr>
 <td>
-<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/efb7e898-ce4b-4426-bc62-2b25a407a081">
+<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/60e5ef9c-05eb-45b0-a4b5-98fe75dde330">
 </td>
 <td>
-<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/0adc4dd5-5baf-41ff-8a85-c61cc415ac3f">
+<img width="945" alt="image" src="https://github.com/SarveshLimaye/TechX-Mumbai/assets/74766567/a19a77e7-607e-46b3-ba55-17558256178d">
 </td
 </tr>
 </table>
