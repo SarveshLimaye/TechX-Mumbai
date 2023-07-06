@@ -1,21 +1,7 @@
-import React from "react";
-import {
-  Flex,
-  Heading,
-  Text,
-  Stack,
-  Button,
-  Avatar,
-  Grid,
-  Center,
-  Box,
-  Image,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Heading, Text, Grid, GridItem, Center, Image } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Home from "../Home/Home";
-import { Navigate } from "react-router-dom";
 import AttendedEventCard from "../../components/AttendedEventCard/AttendedEventCard";
 
 export const Profile = () => {
@@ -23,7 +9,7 @@ export const Profile = () => {
   const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
   const [attendedEvents, setAttendedEvents] = useState([]);
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   useEffect(() => {
     const getUser = async () => {
@@ -50,41 +36,38 @@ export const Profile = () => {
 
   return (
     <div>
-      <Text>Welcome back, {name}</Text>
-      <Flex justifyContent="space-between">
-        <Flex
-          ml={6}
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="left"
-          mt={6}
-        >
-          <Avatar
-            size="2xl"
-            name={name}
-            src={image}
-            justifyContent="center"
-            ml={6}
-          />
-          <Stack spacing={4} ml={4} mt={2}>
-            <Heading fontSize="2xl">{name}</Heading>
-            <Text>{email}</Text>
-          </Stack>
-        </Flex>
-
-        <Grid
-          templateColumns="repeat(3, 1fr)"
-          gap={6}
-          ml="20px"
-          alignItems="right"
-        >
-          {attendedEvents.map((event) => (
-            <div>
-              <AttendedEventCard event={event} />
-            </div>
-          ))}
-        </Grid>
-      </Flex>
+      <Grid templateColumns="repeat(5, 1fr)" gap={4} m={12}>
+        <GridItem colSpan={1} m={5}>
+          <Center>
+            <Image src={image} width={150} height={150} ml={7} />
+          </Center>
+        </GridItem>
+        <GridItem colStart={3} colEnd={6} mt={5}>
+          <Heading size="lg" ml={10}>
+            Welcome back {name}
+          </Heading>
+          <Text fontSize="xl" ml={12} mt={4}>
+            Email: {email}
+          </Text>
+        </GridItem>
+      </Grid>
+      <Center>
+        <Heading size="lg" mt={10} mb={3}>
+          Registered Events
+        </Heading>
+      </Center>
+      <Grid
+        templateColumns="repeat(3, 1fr)"
+        gap={6}
+        ml="20px"
+        alignItems="right"
+      >
+        {attendedEvents.map((event) => (
+          <div key={event._id}>
+            <AttendedEventCard event={event} />
+          </div>
+        ))}
+      </Grid>
     </div>
   );
 };
